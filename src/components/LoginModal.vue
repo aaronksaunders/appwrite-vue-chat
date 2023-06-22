@@ -1,6 +1,10 @@
 <template>
   <ion-page>
-    <ion-content>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content  style="padding: 32px;">
       <ion-item v-if="mode === 'SIGNUP'">
         <ion-input type="text" v-model="displayName"></ion-input>
       </ion-item>
@@ -19,7 +23,7 @@
   </ion-page>
 </template>
 <script setup lang="ts">
-import { IonContent, IonInput, IonButton, IonItem, IonPage } from "@ionic/vue";
+import { IonContent, IonInput, IonButton, IonItem, IonPage, IonHeader, IonToolbar } from "@ionic/vue";
 import { ref } from "vue";
 
 // PROPS
