@@ -97,6 +97,10 @@ const showSignUp = ref(false);
 
 const { messages, userId, userInfo } = useStore();
 
+/**
+ * 
+ * @param date 
+ */
 const formatDate = (date: string) => {
   const dateTime = new Date(date);
   return dateTime.toLocaleString("en-US", {
@@ -108,6 +112,9 @@ const formatDate = (date: string) => {
   });
 };
 
+/**
+ * 
+ */
 const doLogout = async () => {
   await appwrite.account.deleteSessions();
   userId.value = null;
@@ -153,8 +160,6 @@ const handleSignUp = async (data: any) => {
       data?.displayName
     );
 
-    debugger;
-
     if (user) {
       const session = await appwrite.account.createEmailSession(
         data?.email,
@@ -168,6 +173,9 @@ const handleSignUp = async (data: any) => {
   }
 };
 
+/**
+ * 
+ */
 const sendMessage = async () => {
   if (!messageText.value || !userId.value) return;
 
@@ -207,7 +215,7 @@ const load = async () => {
     const { documents } = await appwrite.databases.listDocuments(
       import.meta.env.VITE_APPWRITE_DB,
       import.meta.env.VITE_APPWRITE_COLLECTION,
-      [Query.orderDesc('$updatedAt')]
+      [Query.orderAsc('$updatedAt')]
     );
 
     console.log(documents);
@@ -236,7 +244,7 @@ onMounted(async () => {
     async ({ payload, events }) => {
       // await sleep(1000);
       let prev = messages?.value || [];
-      messages.value = [payload,...prev, ];
+      messages.value = [...prev,payload ];
     }
   );
 });

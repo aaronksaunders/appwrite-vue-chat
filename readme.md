@@ -30,10 +30,8 @@ const config: CapacitorConfig = {
   appName: 'appwrite-chat',
   webDir: 'dist',
   // when building for IOS you must set the host name,
-  // when building for Android you can remove the server config
   server : {
     hostname : 'cloud.appwrite.io',
-    androidScheme: 'https'
   },
   plugins: {
     CapacitorCookies: {
@@ -56,3 +54,26 @@ VITE_APPWRITE_DB=
 VITE_APPWRITE_COLLECTION=
 ```
 
+## Android Quirks
+You must remove the complete `server` property in the capacitor.config when running on Android or the app will not work at all
+
+```javascript
+import { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'io.ionic.starter',
+  appName: 'appwrite-chat',
+  webDir: 'dist',
+  // when building for Android you MUST remove the server config
+  //server : {
+  //  hostname : 'cloud.appwrite.io',
+  //},
+  plugins: {
+    CapacitorCookies: {
+      enabled: true,
+    }
+  },
+
+};
+
+export default config;

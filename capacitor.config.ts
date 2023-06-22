@@ -5,10 +5,10 @@ const config: CapacitorConfig = {
   appName: 'appwrite-chat',
   webDir: 'dist',
   // when building for IOS you must set the host name,
-  // when building for Android you can remove the server config
+  // when building for Android you MUST remove the 
+  // server config completely
   server : {
-    hostname : 'cloud.appwrite.io',
-    androidScheme: 'https'
+    //hostname : 'cloud.appwrite.io',
   },
   plugins: {
     CapacitorCookies: {
