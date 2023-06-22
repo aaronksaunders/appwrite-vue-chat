@@ -49,14 +49,10 @@ export default config;
 
 Make sure you set you `.env` file properly using the values from your Appwrite Project. There is an example file, `.env.example` you can use to help ensure you collect the proper environment variables
 
-```shell
+```javascript
 VITE_APPWRITE_ENDPOINT=
 VITE_APPWRITE_PROJECT=
 VITE_APPWRITE_DB=
 VITE_APPWRITE_COLLECTION=
 ```
 
-| Column 1 | Column 2 | Column 3 |
-|----------|----------|----------|
-| Row 1   | Value 1  | Value 2  |
-| Row 2   | Value 3  | Value 4  |
