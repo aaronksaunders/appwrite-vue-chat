@@ -85,10 +85,10 @@ import {
   IonButtons,
   IonModal,
 } from "@ionic/vue";
-import { nextTick, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { appwrite } from "../appwrite-lib.js";
 import { useStore } from "../useStore.js";
-import { Permission, Query, Role } from "appwrite";
+import { Query } from "appwrite";
 import LoginModal from "../components/LoginModal.vue";
 
 const messageText = ref("");
@@ -187,8 +187,7 @@ const sendMessage = async () => {
       message: messageText.value,
       owner: userId.value,
       displayName: userInfo?.value.name,
-    },
-    [Permission.read(Role.users()), Permission.delete(Role.user(userId.value))]
+    }
   );
   messageText.value = "";
 };
